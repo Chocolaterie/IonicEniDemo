@@ -14,7 +14,37 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <p>Le prenom est : {{ firstname }}</p>
+    <!-- Input : String prenom -->
+    <ion-item>
+      <ion-input [(ngModel)]="firstname" label="Prenom" placeholder="Enter a firstname"></ion-input>
+    </ion-item>
+
+    <!-- Input : String prenom -->
+    <!-- <ion-item>
+      <ion-input (ngModel)="firstname" label="Prenom (One Way Binding = Ctrl Vers Vue)" placeholder="Enter a firstname"></ion-input>
+    </ion-item> -->
+
+    <!-- Input : Attribut d'une instance -->
+    <ion-item>
+      <ion-input [(ngModel)]="currentPerson.firstname" label="Prenom d'une personne" placeholder="Enter a firstname"></ion-input>
+    </ion-item>
+
+    <!-- On click -->
+    <ion-button (click)="onClickTest()">Test Clique</ion-button>
+    
+    <!-- Formulaire article -->
+    <h2>Article Formulaire</h2>
+   <!-- Input : String title -->
+    <ion-item>
+     <ion-input (ngModel)="article.title" label="Titre" placeholder="Titre de l'article"></ion-input>
+    </ion-item>
+     <!-- La ListView -->
+    <!-- <ion-list>
+      <ion-item *ngFor="let person of persons">
+        <ion-label>{{ person.firstname }} {{ person.lastname }}</ion-label>
+      </ion-item>
+    </ion-list> -->
+
   </div>
 </ion-content>
