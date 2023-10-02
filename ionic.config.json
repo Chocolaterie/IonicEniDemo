@@ -1,0 +1,7 @@
+{
+  "name": "IonicEniDemo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
