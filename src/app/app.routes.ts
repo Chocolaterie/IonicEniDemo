@@ -7,7 +7,11 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'kahoot',
     pathMatch: 'full',
+  },
+  {
+    path: 'kahoot',
+    loadComponent: () => import('./demo_state_machine/kahoot/kahoot.page').then( m => m.KahootPage)
   },
 ];

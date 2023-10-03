@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>kahoot</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">kahoot</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Container -->
+  <div>
+    <!-- State : ENTRY_PSEUDO : Le formulaire pseudo + commencer -->
+    <div>
+      <!-- Pseudo -->
+      <ion-item>
+        <ion-input label="Pseudo" placeholder="Entrer un pseudo"></ion-input>
+      </ion-item>
+      
+      <!-- Button Start -->
+      <ion-button expand="full">Start</ion-button>
+    </div>
+
+    <!-- State : GAME_PLAY : Le jeu  -->
+    <div>
+      <!-- State : WAIT QUESTION REPLY -->
+      <div>
+        <!-- La question formulée -->
+        <ion-item>
+          La question : TODO ????
+        </ion-item>
+        <!-- Les réponses possibles -->
+        <ion-list>
+          <ion-button expand="full">OUI</ion-button>
+          <ion-button expand="full">NON</ion-button>
+        </ion-list>
+      </div>
+
+      <!-- State : QUESTION RESULT -->
+      <div>
+        <p>La bonne réponse était : TODO</p>
+        <ion-button expand="full">Question Suivant</ion-button>
+      </div>
+
+      <!-- State : GAME RESULT -->
+      <div>
+        <p>La bonne réponse était : TODO</p>
+        <p>Votre score total est de : TODO</p>
+        <ion-button expand="full">Rejouer</ion-button>
+        <ion-button expand="full">Quitter</ion-button>
+      </div>
+      
+    </div>
+  </div>
+</ion-content>
