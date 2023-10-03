@@ -64,9 +64,15 @@ export class KahootPage implements OnInit {
    * Lancer la partie
    */
   startGame(){
+    // Option 1 : Reset tout l'objet
+    this.kahootGame = new KahootGame();
+
+    // Option 2 : Clear à la main
+    // this.kahootGame.currentQuestionIndex = 0;
+    // this.kahootGame.score = 0;
+
     // Je lance un jeu avec des questions
     // -- Alimentation de fausse données
-    
     let question1 = new Question()
     question1.message = "Quel est le pire Beurre de France ?"
     question1.replies = [new Reply("Beurre Doux", false), new Reply("Beurre Salé", true)];
@@ -86,9 +92,24 @@ export class KahootPage implements OnInit {
   /**
    * Lorsque je selectionne une réponse
    */
-  onClickReply(){
-    // Je change l'état à : Afficher le résultat de la question actuelle (ou bonne réponse)
-    this.currentGameState = GameState.QUESTION_RESULT
+  onClickReply(reply: Reply){
+    // Si la réponse en question est correcte = ajout de point 
+    if (reply.isCorrect){
+      // Todo : un Toast qui affiche "Correcte"
+      // On à gagné 1 point
+      this.kahootGame.score += 1
+    }
+
+    // Est-ce que la partie est terminé (toute les questions ont été traitées)
+    if (this.kahootGame.currentQuestionIndex + 1 >= this.kahootGame.questions.length){
+      // Pour l'instant changer l'etat : La partie est terminée
+      this.currentGameState = GameState.GAME_RESULT;
+    }
+    else {
+      // Je change l'état à : Afficher le résultat de la question actuelle (ou bonne réponse)
+      this.currentGameState = GameState.QUESTION_RESULT
+    }
+
   }
 
   /**
@@ -114,5 +135,9 @@ export class KahootPage implements OnInit {
   onClickQuitGame(){
     // Repasser l'état du kahoot global : Entrer le pseudo/Préparation
     this.currentKahootState = KahootState.WAIT_PLAYER_PSEUDO;
+  }
+
+  onClickRestart(){
+    this.startGame();
   }
 }

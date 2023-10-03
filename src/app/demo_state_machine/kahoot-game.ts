@@ -29,6 +29,31 @@ export class Question {
      */
     replies : Reply[] = [];
 
+    /**
+     * @returns Récupérer la bonne réponse
+     */
+    getCorrectAnwser() : Reply {
+        for (let reply of this.replies){
+            if (reply.isCorrect){
+                return reply;
+            }
+        }
+        return this.replies[0];
+
+        // Une autre version
+        /*
+        let correctReply = this.replies[0];
+        for (let reply of  this.replies){
+            if (reply.isCorrect){
+                correctReply = reply
+                break
+            }
+        }
+
+        return correctReply;
+        */
+    } 
+
 }
 
 export class KahootGame {

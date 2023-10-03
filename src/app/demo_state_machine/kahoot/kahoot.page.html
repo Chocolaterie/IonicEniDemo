@@ -34,21 +34,21 @@
         </ion-item>
         <!-- Les réponses possibles -->
         <ion-list>
-          <ion-button *ngFor="let reply of kahootGame.getCurrentQuestion().replies" expand="full" (click)="onClickReply()">{{ reply.message }}</ion-button>
+          <ion-button *ngFor="let reply of kahootGame.getCurrentQuestion().replies" expand="full" (click)="onClickReply(reply)">{{ reply.message }}</ion-button>
         </ion-list>
       </div>
 
       <!-- State : QUESTION RESULT -->
       <div *ngSwitchCase="GameState.QUESTION_RESULT">
-        <p>La bonne réponse était : TODO</p>
+        <p>La bonne réponse est : {{ kahootGame.getCurrentQuestion().getCorrectAnwser().message }}</p>
         <ion-button expand="full" (click)="onClickNextQuestion()">Question Suivante</ion-button>
       </div>
 
       <!-- State : GAME RESULT -->
       <div *ngSwitchCase="GameState.GAME_RESULT">
-        <p>La bonne réponse était : TODO</p>
-        <p>Votre score total est de : TODO</p>
-        <ion-button expand="full">Rejouer</ion-button>
+        <p>La bonne réponse est : {{ kahootGame.getCurrentQuestion().getCorrectAnwser().message }}</p>
+        <p>Votre score total est de : {{ kahootGame.score }}</p>
+        <ion-button expand="full" (click)="onClickRestart()">Rejouer</ion-button>
         <ion-button expand="full" (click)="onClickQuitGame()">Quitter</ion-button>
       </div>
       
