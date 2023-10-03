@@ -12,45 +12,44 @@
   </ion-header>
 
   <!-- Container -->
-  <div>
+  <div [ngSwitch]="currentKahootState">
     <!-- State : ENTRY_PSEUDO : Le formulaire pseudo + commencer -->
-    <div>
+    <div *ngSwitchCase="KahootState.WAIT_PLAYER_PSEUDO">
       <!-- Pseudo -->
       <ion-item>
         <ion-input label="Pseudo" placeholder="Entrer un pseudo"></ion-input>
       </ion-item>
       
       <!-- Button Start -->
-      <ion-button expand="full">Start</ion-button>
+      <ion-button expand="full" (click)="startGame()">Start</ion-button>
     </div>
 
     <!-- State : GAME_PLAY : Le jeu  -->
-    <div>
+    <div *ngSwitchCase="KahootState.GAME_PLAY" [ngSwitch]="currentGameState">
       <!-- State : WAIT QUESTION REPLY -->
-      <div>
+      <div *ngSwitchCase="GameState.WAIT_QUESTION_REPLY">
         <!-- La question formulée -->
         <ion-item>
-          La question : TODO ????
+          La question : {{ kahootGame.getCurrentQuestion().message }}
         </ion-item>
         <!-- Les réponses possibles -->
         <ion-list>
-          <ion-button expand="full">OUI</ion-button>
-          <ion-button expand="full">NON</ion-button>
+          <ion-button *ngFor="let reply of kahootGame.getCurrentQuestion().replies" expand="full" (click)="onClickReply()">{{ reply.message }}</ion-button>
         </ion-list>
       </div>
 
       <!-- State : QUESTION RESULT -->
-      <div>
+      <div *ngSwitchCase="GameState.QUESTION_RESULT">
         <p>La bonne réponse était : TODO</p>
-        <ion-button expand="full">Question Suivant</ion-button>
+        <ion-button expand="full" (click)="onClickNextQuestion()">Question Suivante</ion-button>
       </div>
 
       <!-- State : GAME RESULT -->
-      <div>
+      <div *ngSwitchCase="GameState.GAME_RESULT">
         <p>La bonne réponse était : TODO</p>
         <p>Votre score total est de : TODO</p>
         <ion-button expand="full">Rejouer</ion-button>
-        <ion-button expand="full">Quitter</ion-button>
+        <ion-button expand="full" (click)="onClickQuitGame()">Quitter</ion-button>
       </div>
       
     </div>
