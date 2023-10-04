@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>demo-m5</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">demo-m5</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div>
+    <ion-button expand="full" (click)="openAlert(true)">Ouvrir Alert</ion-button>
+    <ion-button expand="full" (click)="openToast(true)">Ouvrir Toast</ion-button>
+
+    <!-- Mon Alert -->
+    <ion-alert [isOpen]="isAlertOpen" header="Titre de mon alert" [message]="errorMessage"
+      (didDismiss)="openAlert(false)"></ion-alert>
+
+    <!-- Toast -->
+    <ion-toast [isOpen]="isToastOpen" duration="500" message="Crevette Ananas Nutella Pizza Cassoulet"
+      (didDismiss)="openToast(false)"></ion-toast>
+  
+    </div>
+</ion-content>
