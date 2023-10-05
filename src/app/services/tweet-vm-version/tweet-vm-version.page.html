@@ -23,5 +23,9 @@
         </ion-card-content>
       </ion-card>
     </ion-list>
+
+ 
   </div>
+  <ion-button expand="full" routerLink="/home">Aller à la page HOME</ion-button>
+  <ion-button expand="full" [routerLink]="['/home', 10]">Aller à la page HOME Avec param</ion-button>
 </ion-content>

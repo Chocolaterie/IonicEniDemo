@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { NgForOf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 // Classe personne
 class Person {
@@ -26,7 +26,7 @@ class Article {
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule, FormsModule, NgForOf],
+  imports: [IonicModule, FormsModule, CommonModule],
 })
 export class HomePage {
 
