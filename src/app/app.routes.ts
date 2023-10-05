@@ -7,7 +7,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'pageobeserver',
+    redirectTo: 'tweet-vm-version',
     pathMatch: 'full',
   },
   {
@@ -21,5 +21,13 @@ export const routes: Routes = [
   {
     path: 'pageobeserver',
     loadComponent: () => import('./demo-observer/pageobeserver/pageobeserver.page').then( m => m.PageobeserverPage)
+  },
+  {
+    path: 'tweet-page',
+    loadComponent: () => import('./services/tweet-page/tweet-page.page').then( m => m.TweetPagePage)
+  },
+  {
+    path: 'tweet-vm-version',
+    loadComponent: () => import('./services/tweet-vm-version/tweet-vm-version.page').then( m => m.TweetVmVersionPage)
   },
 ];

@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>tweet-vm-version</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">tweet-vm-version</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div>
+    <ion-list *ngIf="tweets$ | async as tweets">
+      <ion-card *ngFor="let tweet of tweets">
+        <ion-card-header>
+          <ion-card-title>{{ tweet.author }}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{ tweet.message }}
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
+</ion-content>
